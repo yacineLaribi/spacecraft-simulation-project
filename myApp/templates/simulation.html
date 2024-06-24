@@ -1,0 +1,616 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "simulation.css" %}>
+    <title>Simulation</title>
+</head>
+<body>
+    <nav>
+        <img src={% static "assets/Scholarcap.png" %} alt="logo" height="150" class="logo">
+        <ul>
+            <li><a href={% url "home" %}>Dashboard</a></li>
+            <li><a href={% url "simulation" %} class="active">Simulation</a></li>
+            <li><a href={% url "about" %}>About</a></li>
+            <li><a href="https://sheer-engine-ac6.notion.site/Pfe-6b818d0020d74a22821aab16edc7e5ee?pvs=4" target="_blank">Road Map Pfe</a></li>
+        </ul>
+        <img src= {% static "assets/satellite.png" %} alt="spacecraft" height="100" class="spacecraft">
+    </nav>
+    <main>
+        <section id="one">
+            <h1>1 - One Axis</h1>
+            <h6>A composite control attitude stabilization of flexible spacecraft.</h6>
+            <div class="part-one">
+                <div class="left">
+                    <h2>Problem Formulation</h2>
+                    <img src={% static "assets/formulation.png" %} alt="">
+                </div>
+                <div class="right">
+                    <h2>Over View</h2>
+                    <p>In this segment, we will design composite controllers based on only the PD controller, 
+                        DOBC and PD control and ESO with the PD control schemes for flexible spacecraft, 
+                        where DOBC and ESO can compensate the effect of vibration from flexible appendages, 
+                        and a PD controller can control the attitude of the spacecraft. <br> <br>
+                        Simulations for a flexible spacecraft shows that the performance of attitude control system can be guaranteed
+                        by the proposed methods.
+                    </p>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="part-two">
+                <div class="left">
+                    <h1>Toggle Bars</h1>
+                  <!--  TODO : ADDING THE TOGGLE BARS -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div>
+                                <img src={% static "assets/case1.png" %} height="50" alt="">
+                                <label class="switch">
+                                    <input checked="" name="pd_control" type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                        <div>
+                            <img src={% static "assets/case2.png" %} height="50" alt="">
+                            <label class="switch">
+                                <input checked="" name="dobc_control" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div>
+                                <img src={% static "assets/case3.png" %} height="50" alt="">
+                                <label class="switch">
+                                    <input checked="" name="eso_control" type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                        <div>
+                            <img src={% static "assets/extra.png" %} height="65" alt="">
+                            <label class="switch">
+                                <input checked="" name="extra" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+                        <button type="submit">RUN</button>
+
+                    </form>
+                </div>
+                <div class="right">
+                    <h1>Control Structure</h1>
+                    <img src={% static "assets/diagram.png" %}>
+                </div>
+            </div>
+            <div class="part-three" id="results-1">
+                <h1>Results</h1>
+                <div class="figures">
+                    {% if not case_plot1 and not case_plot2 and not disturbances %}
+                        No Plots Generated Yet !
+                    {% endif %}
+
+                    <div class="row">
+                        <div>
+                            {% if case_plot1 and case_plot2 %}
+                                <img src="data:image/png;base64,{{ case_plot1 }}" alt="Case Plot 1">
+                                <p>Teta Plot</p>
+                                </div>
+                                <div>
+                                    <img src="data:image/png;base64,{{ case_plot2 }}" alt="Case Plot 2">
+                                    <p>Teta Dot Plot</p>
+                                    
+                                </div>
+                            {% endif %}
+                    </div>
+                    <div class="row">
+                    {% if disturbances %}
+                        <div>
+                            <img src="data:image/png;base64,{{ disturbances.1 }}" alt="Internal Disturbance Plot">
+                            <p>Internal Disturbance Plot</p>
+                        </div>
+                        <div>
+                            <img src="data:image/png;base64,{{ disturbances.0 }}" alt="External Disturbance Plot">
+                            <p>External Disturbance Plot</p>                            
+                        </div>  
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        
+        </section>
+        <hr>
+        <section id="two">
+            <h1>2 - Three Axis</h1>
+            <h6>Flexible Spacecraft Attitude control with different methods</h6>
+            <div class="part-one">
+                <div class="left">
+                    <h2>Problem Formulation</h2>
+                    <img src={% static "assets/problem_formulation.png" %} alt="">
+                </div>
+                <div class="right" style="gap: 2rem ;">
+                    <h2>Over View</h2>
+                    <p>In this segment, we explore the basic control strategies for attitude stabilization of a flexible spacecraft using quaternion representations for accurate dynamic modeling.For this we are going to use 04 methods adding the DOBC observer to each one proportional-derivative (PD) control, Sliding mode control with 03 mode saturation, 
+                        sign function and tanh function and two different methods of the adaptative Sliding mode control. <br> <br>
+                        in this section we can do an comparative study based between 02 methods.
+                         with the ability to examine the RMS error of each method according to our thesis work.
+                    </p>
+                    <button>See More</button>
+                </div>
+            </div>
+            
+            <div class="part-two" style="gap: 2rem;">
+                <div class="left">
+                    <h1>Toggle Bars</h1>
+                    <form method='post'> 
+                        {% csrf_token %}
+                        <div class="row">
+                            <div style="gap: 2.5rem;">
+                                <img src={% static "assets/method1.png" %} height="60" alt="">
+                                <label class="switch">
+                                    <input checked="" name='tanh' type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    Tanh
+                                </label>
+                                <label class="switch">
+                                    <input checked="" name='sign' type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    Sign    
+                                </label>
+                                <label class="switch">
+                                    <input checked="" name='sat' type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    Sat
+                                </label>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <img src={% static "assets/method2.png" %} height="60" alt="">
+                                <label class="switch">
+                                    <input checked="" name='pd_dobc_control'  type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                        <div>
+                            <img src={% static "assets/method3.png" %} height="60" alt="">
+                            <label class="switch">
+                                <input checked=""  name='asm1' type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div>
+                                <img src={% static "assets/method4.png" %} height="60" alt="">
+                                <label class="switch">
+                                    <input checked="" name='asm2'  type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                        <div>
+                            <img src={% static "assets/extra2.png" %} height="65" alt="">
+                            <label class="switch">
+                                <input checked="" name='extra2'  type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+                        <button>RUN</button>
+
+                    </form>
+                </div>
+                <div class="right" style="margin-top: 40px; gap: 3rem;">
+                    <h1>Simulation Structure</h1>
+                    <img src={% static "assets/simulation_struct.png" %} style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="part-three">
+                <h1>Results</h1>
+                {% if not case2_plot1 and not case2_plot2 and not disturbances2 %}
+                        No Plots Generated Yet !
+                {% else %}
+                    <div class="figures">
+                        <div class="row">
+                            <div>
+                                <img src="data:image/png;base64,{{ sm_plot1 }}" alt="Case 2 Plot 1">
+                                {% comment %} <p>Position_plot “Method a”</p> {% endcomment %}
+                            </div>
+                            <div>
+                                <img src="data:image/png;base64,{{ sm_plot2 }}" alt="Case 2 Plot 2">
+                                
+                                {% comment %} <p>Position_plot “Method b”</p> {% endcomment %}
+                            </div>
+                        </div>
+                        <h2>
+                            RMS:{{rms1}}
+                        </h2>
+                        <div class="row">
+                            <div>
+                                <img src="data:image/png;base64,{{ case2_plot1 }}" alt="Case 2 Plot 3">
+
+                                {% comment %} <p>Speed_plot “Method a”</p> {% endcomment %}
+                            </div>
+                            <div>
+                                <img src="data:image/png;base64,{{ case2_plot2 }}" alt="Case 2 Plot 4">
+
+                                {% comment %} <p>Speed_plot “Method b”</p> {% endcomment %}
+
+                            </div>
+                        </div>
+                        <h2>
+                            RMS:{{rms2}}
+                        </h2>
+                        <div class="row">
+                        {% if disturbances2 %}
+                            <div>
+                                <img src="data:image/png;base64,{{ disturbances2.1 }}" alt="Internal Disturbance Plot">
+                                <p>Internal Disturbance Plot</p>
+                            </div>
+                            <div>
+                                <img src="data:image/png;base64,{{ disturbances2.0 }}" alt="External Disturbance Plot">
+                                <p>External Disturbance Plot</p>                            
+                            </div>  
+                        </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </section>
+        <hr>
+        <section id="three">
+            <h1>3 - Flexible</h1>
+            <h6>Structural Dynamics Effects on Spacecraft Attitude Control.</h6>
+            <div class="part-one">
+                <div class="left">
+                    <h2>Problem Formulation</h2>
+                    <img src={% static "assets/flexible2.png" %} alt="">
+                </div>
+                <div class="right" style="margin-top: 50px;">
+                    <h2>Over View</h2>
+                    <p>For this segment, we intended to employ the state-space approach to depict the flexible appendages followed by utilizing bode and nicholas charts to observe the stability of the flexible part. 
+                        Subsequently, we implement a controller to enhance the stability reserve of our systems.
+                        - we select the initial three systems as instances to analyze.
+                    </p>
+                    <img src={% static "assets/table-flexion.png" %} alt="">
+                    <button>See More</button>
+                </div>
+            </div>     
+            <div class="part-two">
+                <div class="left">
+                    <h1>Toggle Bars</h1>
+                    <form  method="post" >
+                        {% csrf_token %}
+                        <div class="row">
+                            <div>
+                                <img src={% static "assets/mode1.png" %} height="50" alt="">
+                                <label class="switch">
+                                    <input checked="" name="fm" type="checkbox">
+                                    <div class="slider">
+                                        <div class="circle">
+                                            <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                                </g>
+                                            </svg>
+                                            <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                        <div>
+                            <img src={% static "assets/mode2.png" %} height="50" alt="">
+                            <label class="switch">
+                                <input checked="" name="cl" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        </div>
+
+                        <div class="row" style="gap: 2rem;">
+                            <label class="switch">
+                                <input checked="" name="sys1" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <b>System 1</b>
+                            </label>
+                            <label class="switch">
+                                <input checked="" name="sys2" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <b>System 2</b>
+                            </label>
+                            <label class="switch">
+                                <input checked="" name="sys3" type="checkbox">
+                                <div class="slider">
+                                    <div class="circle">
+                                        <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 365.696 365.696" y="0" x="0" height="6" width="6" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path data-original="#000000" fill="currentColor" d="M243.188 182.86 356.32 69.726c12.5-12.5 12.5-32.766 0-45.247L341.238 9.398c-12.504-12.503-32.77-12.503-45.25 0L182.86 122.528 69.727 9.374c-12.5-12.5-32.766-12.5-45.247 0L9.375 24.457c-12.5 12.504-12.5 32.77 0 45.25l113.152 113.152L9.398 295.99c-12.503 12.503-12.503 32.769 0 45.25L24.48 356.32c12.5 12.5 32.766 12.5 45.247 0l113.132-113.132L295.99 356.32c12.503 12.5 32.769 12.5 45.25 0l15.081-15.082c12.5-12.504 12.5-32.77 0-45.25zm0 0"></path>
+                                            </g>
+                                        </svg>
+                                        <svg class="checkmark" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="10" width="10" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path class="" data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <b>System 3</b>
+                            </label>
+                        </div>
+
+                        <button>RUN</button>
+
+                    </form>
+                </div>
+                <div class="right">
+                    <h1>Control Structure</h1>
+                    <img src={% static "assets/controle-flexible.png" %}>
+                </div>
+            </div>
+            <div class="part-three">
+                <h1>Results</h1>
+                <div class="figures">
+                    <div class="row">
+                        {% if free and system1 %}
+                            <div>
+                                <img src={% static "assets/bode_fm_sys_01.png" %} height="500" alt="">
+                                <p>Bode chart with margins</p>
+                            </div>
+                        {% elif  free and system2 %}
+                            <div>
+                                <img src={% static "assets/bode_fm_sys_02.png" %} height="500" alt="">
+                                <p>Bode chart with margins</p>
+                            </div>
+                        {% elif free and system3 %}
+                            <div>
+                                <img src={% static "assets/bode_fm_sys_03.png" %} height="500" alt="">
+                                <p>Bode chart with margins</p>
+                            </div>
+                        {% endif %}
+                        <div>
+                            {% if  system1 %}
+                                <img src={% static "assets/nichols_sys_01.png" %} height="500" alt="">
+                                <p>Nicholas chart with margins</p>
+                            
+                            {% elif system2 %}
+                                <img src={% static "assets/nichols_sys_02.png" %} height="500" alt="">
+                                <p>Nicholas chart with margins</p>
+
+                            {% elif system3 %}
+                                <img src={% static "assets/nichols_sys_03.png" %} height="500" alt="">
+                                <p>Nicholas chart with margins</p>
+
+                            {% endif %}
+                            
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% if closed and system1 %}
+                            <div>
+                                <img src={% static "assets/bode_cl_sys_01.png" %} height="500" alt="">
+                                <p>Bode chart with margins Closed loop</p>
+                            </div>
+                        {% elif  closed and system2 %}
+                            <div>
+                                <img src={% static "assets/bode_cl_sys_02.png" %} height="500" alt="">
+                                <p>Bode chart with margins Closed loop</p>
+                            </div>
+                        {% elif closed and system3 %}
+                            <div>
+                                <img src={% static "assets/bode_cl_sys_03.png" %} height="500" alt="">
+                                <p>Bode chart with margins Closed loop</p>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr style="height: 45px;">
+        
+    </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "dashboard.css" %}>
+    <title>Dashboard</title>
+</head>
+<body>
+    <aside>
+        <img src={% static "assets/logo.png" %}  height="120" class="logo">
+        <ul>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href={% url "simulation" %}>One axis</a></li>
+            <li><a href="simulation#two">Three axis</a></li>
+            <li><a href= "simulation#three">Flexible</a></li>
+            <li><a href={% url "about" %}>About Us</a></li>
+        </ul>
+    </aside>
+    <section>
+        <nav>
+            <img src={% static "assets/Scholarcap.png" %} height="170"  class="icon-1">
+            <div>
+                <h2>Graduation Thesis</h2>
+                <p>Dynamic Modeling and Composite Attitude Control of Flexible Spacecraft under Multiple Disturbances.</p>
+                <b>+</b>
+                <p>Adaptive Fault-Tolerant Attitude Control of Flexible Spacecraft with Actuator Constraints</p>
+            </div>
+            <img src={% static "assets/satellite.png" %} height="125"  class="icon-2">
+        </nav>
+        <main>
+            <div class="left">
+                <div class="section-1">
+                    <h3>Main Chapters</h3>
+                    <div class="cards">
+                        <a href={% static "assets/Flexible_Analysis.pdf" %} download class="card">
+                            <span>
+                                <img src={% static "assets/flexible.png" %}  height="90" alt="Flexible Appendages">
+                                <h4>Flexible Appendages</h4>
+                            </span>
+                        </a>
+                        <a href={% static "assets/one_axis_control.pdf" %} download class="card">
+                            <span>
+                                <img src={% static  "assets/spacecraft.png" %}  height="90" alt="Composite control">
+                                <h4>A composite control attitude stabilization of flexible spacecraft <br> one - axis</h4>
+                            </span>
+                        </a>
+                        <a href={% static "assets/Three_axis_control.pdf" %} download class="card">
+                            <span>
+                                <img src={% static "assets/geometry.png" %}  height="90" alt="Others">
+                                <h4>Attitude Stabilization of Flexible Spacecraft. Three - axes</h4>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section-2">
+                    <h2>About The Software Used</h2>
+                    <div class="software-cards">
+                        <div class="card">
+                            <div class="text">
+                                <h4>MATLAB Simulink <br> </h4>
+                                <button><a href="https://fr.mathworks.com/products/simulink.html">View</a></button>
+                            </div>
+                            <img src={% static "assets/Simulink.png" %}  alt="software" class="software-icon">
+                        </div>
+                        <div class="card">
+                            <div class="text">
+                                <h4>Python & Pandas Library</h4>
+                                <button><a href="https://matplotlib.org/stable/users/explain/quick_start.html#types-of-inputs-to-plotting-functions">View</a></button>
+                            </div>
+                            <img src={% static "assets/pythonlibs.png" %}  alt="python" class="software-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h3>Abstract</h3>
+                <div class="abstract-card">
+                    <div>
+                        
+                        <p style="font-size:14px;">
+                            This research addresses the challenges in attitude control of flexible spacecraft, 
+                            exacerbated by the complex interactions between structural dynamics and control systems.
+                            We focus on two main areas: modelling the dynamics of flexible components like solar panels and designing 
+                            advanced attitude control systems. Our approach starts with developing a comprehensive model followed by stability
+                            analysis, which is essential for understanding the behaviors of flexible structures.
+                        </p>
+                    </div>
+                    <a href={% static "assets/Abstract.pdf" %} download>See more</a>
+                </div>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

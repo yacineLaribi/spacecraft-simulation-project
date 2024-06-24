@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= {% static "simulation.css" %}>
+    <title>About Us</title>
+</head>
+<body>
+    <nav>
+        <img src= {% static "assets/Scholarcap.png" %} alt="logo" height="150" class="logo">
+        <ul>
+            <li><a href={% url "home" %}>Dashboard</a></li>
+            <li><a href={% url "simulation" %} >Simulation</a></li>
+            <li><a href={% url "about" %} class="active">About</a></li>
+            <li><a href="https://sheer-engine-ac6.notion.site/Pfe-6b818d0020d74a22821aab16edc7e5ee?pvs=4" target="_blank">Road Map Pfe</a></li>
+        </ul>
+        <img src= {% static "assets/satellite.png" %} alt="spacecraft" height="100" class="spacecraft">
+    </nav>
+    <main>
+        <section id="one">
+            <h1>About</h1>
+            <h6 style="font-size: 14px; width: 50%;">Discover the Backgroun of Our work and the Significance of the thesis. 
+                Titled :  Dynamic Modeling and Composite Attitude Control of Flexible Spacecraft under Multiple Disturbances.</h6>
+            <div class="part-one" style="gap: 2rem; width: 100%;">
+                <div class="left">
+                    <img src= {% static "assets/about1.png" %} alt="">
+                </div>
+                <div class="right">
+                    <h2>The Objective of Thesis Work</h2>
+                    <p style="font-size: 13px;">The control system plays an important role in spacecraft missions by keeping the body in its intended orbit and attitude.
+                         Both control elements and control algorithms are developed by control engineers for control missions.
+                         Early spacecraft attitude control was based on the assumption that the body was rigid. However, the new communications 
+                         satellites are tricky from a control point of view because their designs have several sources of flexibility: solar panels, 
+                         antennas that can be very large relative to the main body, which can cause degradation in the performance of the attitude control system.
+                          The first active attitude control was designed and implemented by PID/PD controllers where it could stabilize the system. 
+                          For flexible dynamics, the task is more delicate, since the previous controller will not be able to get satisfactory results. <br> <br>
+                        In this interface, a composite controller design approach is proposed for flexible spacecraft based on the disturbance 
+                        observer based control and several controllers which are: PD, SMC, and ASMC controllers.
+                          Simulation for flexible spacecraft is done with Matlab /Simulink platform. 
+
+                    </p>
+                    <button>See More</button>
+                </div>
+            </div>
+            <h1>Our Team</h1>
+            <div class="part-one" style="gap: 7rem; width: 100%;">
+                <div class="team-card">
+                    <img src= {% static "assets/kacem.png" %} height="200" alt="">
+                    <h2>AIZI Belkacem</h2>
+                    <p style="text-transform: capitalize;">a control systems student passionate about graphic design and programming.
+                         He is  about to earn his master's degree in his fifth year of study.</p>
+                </div>
+                <div class="team-card">
+                    <img src={% static "assets/nada.png" %} height="200"  alt="">
+                    <h2>HADEK Alaa Nada</h2>
+                    <p style="text-transform: capitalize;">an ambitious control systems student skilled in MATLAB and mathematical software. 
+                        She is about to earn her master's degree in her fifth year of study.</p>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+</body>
+</html>

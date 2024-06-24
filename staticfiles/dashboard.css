@@ -1,0 +1,233 @@
+/* General Rules*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* , *::after , *::before{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+li{ 
+    list-style: none;
+}
+
+
+body{
+    padding: 50px 0 0 0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    gap: 0rem;
+}
+/*Styling starts here*/
+
+/*the aside section styling */ 
+/*THE MENU somehow !!*/
+aside{
+    padding: 30px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+    flex-direction: column;
+    border-radius: 20px;
+    min-height: 110vh;
+    width: 200px;
+    background: linear-gradient(#C6CFEC,15%,#2D54DD);
+
+}
+aside ul { 
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+}
+aside ul li a {
+    color: rgba(255, 255, 255, 0.5);
+
+}
+aside ul  .active  a{
+    color: white !important;
+}
+
+/* end of styling of the aside */ 
+
+/*Start of main part styling*/
+
+section{
+    
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+nav{
+    max-height: 210px;
+    width: 1000px;
+    background: linear-gradient(to right ,rgba(45, 84, 221, 1),95%,rgba(188, 196, 237, 1) );
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 15px 0;
+}
+nav .icon-1{
+    height: 165px;
+}
+nav .icon-2{
+    width: 390px;
+}
+nav div{
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+nav div h2{
+    font-size: 22px;
+}
+nav div p{
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+}
+
+/*main section (the content) styling */ 
+
+main{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 1000px;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+main .left{
+    width: 80%;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.section-1 .cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    width: 100%;
+}
+
+.section-1 .cards .card {
+    padding: 5px;
+    height: 180px;
+    width: 180px;
+    border-radius: 20px;
+    border: 2px solid rgba(45, 84, 221, 1);
+    box-shadow: 7px 7px 40px 7px rgba(0, 0, 0, 0.08);
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+.section-1 .cards .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+.card img{
+    height: 87px;
+}
+
+.section-2{
+    display:flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.section-2 .software-cards{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.section-2 .software-cards .card {
+    width: 300px;
+    height: 150ox;
+    border-radius: 20px;
+    border: 2px solid rgba(45, 84, 221, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+
+}
+.section-2 .software-cards .card .text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.section-2 .software-cards .card h4{
+    color: #2D54DD;
+    font-size: 17px;
+
+}
+
+.section-2 .software-cards .card button{
+    background-color: rgba(45, 84, 221, 1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+
+}
+
+.right{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.abstract-card{
+    border-radius: 20px;
+    box-shadow: 7px 7px 45px 7px rgba(0, 0, 0, 0.08);
+    border: none;
+    padding: 25px 15px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.abstract-card div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.abstract-card a{
+    color: #2D54DD;
+}
